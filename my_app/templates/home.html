@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="ui/tests/binding_style.css">
+
+        <style>
+
+            .chat-area {
+                position: absolute;
+                top: 20px;
+                right: 75px;
+                width: 500px;          
+            }
+
+            .chat {
+                border: 2px solid #333333;
+                height: 800px;
+                width: 100%;           
+                overflow-y: auto;
+                padding: 10px;
+                box-sizing: border-box;
+            }
+
+            .message {
+                margin-bottom: 8px;
+            }
+
+            .controls {
+                display: flex;
+                gap: 10px;
+                margin-top: 16px;
+            }
+
+            .disconnect {
+                border: 2px solid #333333;
+                padding: 30px 8px;
+                width: 115px;
+                height: 120px;
+                box-sizing: border-box;
+                text-align: center;
+            }
+
+            .box {
+                border: 2px solid #333333;
+                padding: 10px;         
+                height: 120px;
+                box-sizing: border-box;
+                flex: 1;               
+                resize: none;          
+            }
+
+            .send {
+                border: 2px solid #333333;
+                padding: 30px 8px;
+                width: 115px;
+                height: 120px;
+                box-sizing: border-box;
+                text-align: center;
+            }
+
+        </style>
+
+       
+
+    </head>
+
+    <body>
+
+
+        <div class="chat-area">
+            <div class="chat">
+                <div class="message"><strong>Sam:</strong> hey</div>
+                <div class="message"><strong>Alex:</strong> hi!</div>
+            </div>
+
+            <div class="controls">
+                <button class="disconnect">DISCONNECT</button>
+                <textarea class="box" placeholder="Type a message"></textarea>
+                <button class="send">SEND</button>
+            </div>
+        </div>
+                
+   
+    </body>
+
+
+
+
+
+</html
