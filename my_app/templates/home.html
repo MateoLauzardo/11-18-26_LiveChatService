@@ -2,61 +2,160 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="ui/tests/binding_style.css">
+        
 
+
+        
         <style>
 
-            .chat-area {
-                position: absolute;
-                top: 20px;
-                right: 75px;
-                width: 500px;          
-            }
+            /* # NOTE THINGS TO DO */
+            /* make interactive UI for buttons */
+            /* update color scheme */
+            /* come up with name and interactive logo */
+            /* cool feature to the right side (AI-Translation?) */
 
-            .chat {
-                border: 2px solid #333333;
-                height: 800px;
-                width: 100%;           
-                overflow-y: auto;
-                padding: 10px;
+
+            * {
                 box-sizing: border-box;
             }
 
-            .message {
+            body {
+                margin: 0;                     
+                font-family: sans-serif;
+            }
+
+       
+            .site-header {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                height: 56px;                   
+                padding: 0 20px;
+                background-color: #d6ce78;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+            }
+
+            .site-header img {
+                height: 32px;
+                width: auto;
+            }
+
+            .site-header h1 {
+                margin: 0;
+                font-size: 20px;
+                color: white;
+            }
+
+            
+            .page-content {
+                display: flex;
+                justify-content: center;
+                gap: 24px;
+                padding: 20px 40px;
+                height: calc(100vh - 56px);     /* screen height minus the header */
+            }
+
+
+            .left-column {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                /* width calculated so both videos fit the screen height */
+                width: min(calc((100vh - 180px) * 8 / 9), 50vw);
+            }
+
+            .video-area {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .video1,
+            .video2 {
+                aspect-ratio: 16 / 9;
+                background: #000;
+                overflow: hidden;
+            }
+
+            .video1 video,
+            .video2 video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+
+            .local-video {
+                transform: scaleX(-1);
+            }
+
+            .call-controls {
+                display: flex;
+                gap: 12px;
+                height: 60px;
+                margin-top: auto;               
+            }
+
+            .next,
+            .stop {
+                flex: 1;                        
+                border: 1px solid #333333;
+                font-size: 16px;
+                cursor: pointer;
+            }
+
+           
+            .chat-area {
+                display: flex;
+                flex-direction: column;
+                width: 420px;
+            }
+
+            .chat {
+                flex: 1;                        
+                min-height: 0;
+                overflow-y: auto;
+                border: 1px solid #333333;
+                padding: 10px;
+            }
+
+            .message1 {
                 margin-bottom: 8px;
+                color: blue;
+            }
+
+            .message2 {
+                margin-bottom: 8px;
+                color: red;
+            }
+
+            .message1,
+            .message2 {
+                font-size: 13px;
             }
 
             .controls {
                 display: flex;
                 gap: 10px;
-                margin-top: 16px;
+                height: 60px;                   
+                margin-top: 12px;
             }
 
+            .send,
             .disconnect {
-                border: 2px solid #333333;
-                padding: 30px 8px;
-                width: 115px;
-                height: 120px;
-                box-sizing: border-box;
-                text-align: center;
+                width: 100px;
+                border: 1px solid #333333;
+                cursor: pointer;
             }
 
             .box {
-                border: 2px solid #333333;
-                padding: 10px;         
-                height: 120px;
-                box-sizing: border-box;
-                flex: 1;               
-                resize: none;          
+                flex: 1;
+                border: 1px solid #333333;
+                padding: 10px;
+                resize: none;
             }
 
-            .send {
-                border: 2px solid #333333;
-                padding: 30px 8px;
-                width: 115px;
-                height: 120px;
-                box-sizing: border-box;
-                text-align: center;
-            }
+
 
         </style>
 
@@ -64,27 +163,54 @@
 
     </head>
 
+
+
+
+
+
     <body>
 
 
-        <div class="chat-area">
-            <div class="chat">
-                <div class="message"><strong>Sam:</strong> hey</div>
-                <div class="message"><strong>Alex:</strong> hi!</div>
+        <header class="site-header">
+            <h1>TEST-NAME</h1>
+        </header>
+
+        <main class="page-content">
+
+            <div class="left-column">
+                <div class="video-area">
+                    <div class="video1">
+                        <video class="remote-video1" autoplay playsinline></video>
+                    </div>
+                    <div class="video2">
+                        <video class="local-video" autoplay muted playsinline></video>
+                    </div>
+                </div>
+
+                <div class="call-controls">
+                    <button class="next">NEXT</button>
+                    <button class="stop">STOP</button>
+                </div>
             </div>
 
-            <div class="controls">
-                <button class="disconnect">DISCONNECT</button>
-                <textarea class="box" placeholder="Type a message"></textarea>
-                <button class="send">SEND</button>
+            <div class="chat-area">
+                <div class="chat">
+                    <div class="message1"><strong>You:</strong> hey</div>
+                    <div class="message2"><strong>Stranger:</strong> hi!</div>
+                </div>
+                <div class="controls">
+                    <textarea class="box" placeholder="Type a message"></textarea>
+                    <button class="send">SEND</button>
+                </div>
             </div>
-        </div>
-                
-   
+
+        </main>
+
+
     </body>
 
 
 
 
 
-</html
+</html>
